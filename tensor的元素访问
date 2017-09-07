@@ -1,0 +1,10 @@
+如一个tensor，t=[[1,2],[3,4]]
+t[0][0]结果为１
+t[0,0]报错
+
+t = tf.constant([[1,2],[3,4]],dtype=tf.int32)
+sess = tf.Session()
+print(sess.run(t[0,0]))
+此处用t[0,0]的方式可以访问tensor,上下两个例子访问方式不同的原因可能是：
+
+第一个例子实际上并不是一个真正的tensor,第二个是真的tensor,一个tensor可以直接用t[i,j,k]的方式访问（t[i,j,k]是rank为３时）
