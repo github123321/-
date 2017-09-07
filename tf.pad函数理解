@@ -1,0 +1,32 @@
+pad(
+    tensor,
+    paddings,
+    mode='CONSTANT',
+    name=None,
+    constant_values=0
+)
+
+Args:
+
+    tensor: A Tensor.
+    paddings: A Tensor of type int32.
+    mode: One of "CONSTANT", "REFLECT", or "SYMMETRIC" (case-insensitive)
+    name: A name for the operation (optional).
+    constant_values: In "CONSTANT" mode, the scalar pad value to use. Must be same type as tensor.
+    
+paddings是一个Nx2的列表(即paddings是Ｎ行２列)，
+paddings的shape为[n,2],其中n是tensor(不是paddings)的rank
+在输入维度n上，则paddings[n, 0] 表示该维度内容前面加0的个数, 如对矩阵来说，就是行的最上面或列最左边加几排0,
+paddings[n, 1] 表示该维度内容后加0的个数。
+
+如：
+tensor = [[1,2],[1,2]]
+paddings = [[1,2],[3,4]]
+c = tf.pad(tensor, paddings)
+结果c为：（必须用sess=tf.Session, print(sess.run(c))才可以看到c的结果）（默认参数mode='CONSTANT'）
+[[0 0 0 0 0 0 0 0 0]
+ [0 0 0 1 2 0 0 0 0]
+ [0 0 0 1 2 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0]]
+即是在tensor的上面加１行０(paddings[])，下面加２行，左面加３列，右面加４列（其中的１，２，３，４对应paddings中的１，２，３，４）
