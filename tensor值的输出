@@ -1,0 +1,4 @@
+在tensorflow中要输出一个tensor的值，直接：
+print(c)(c是一个tensor)只能输出该tensor的type shape等信息，要想输入该tensor具体的值必须执行：
+sess = tf.Session()
+print(sess.run(c))
