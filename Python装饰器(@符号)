@@ -7,5 +7,5 @@ https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c
 @slim.add_arg_scope
 def stack_blocks_dense():
 
-@slim.add_arg_scope在一个函数的前面，运行这个函数时，不仅调用函数stack_blocks_dense本身，还会把它作为slim.add_arg_scope的参数，调用
-slim.add_arg_scope，且先调用slim.add_arg_scope，后调用stack_blocks_dense
+@slim.add_arg_scope在一个函数的前面，运行函数stack_blocks_dense时，不仅调用函数stack_blocks_dense本身，还会把它作为slim.add_arg_scope的参数，
+调用slim.add_arg_scope，且先调用slim.add_arg_scope，后调用stack_blocks_dense
