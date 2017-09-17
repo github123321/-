@@ -1,0 +1,60 @@
+一
+首先明确的是self只有在类的方法中才会有，独立的函数或方法是不必带有self的。self在定义类的方法时是必须有的，虽然在调用时不必传入相应的参数。
+self名称不是必须的，在python中self不是关键词，你可以定义成a或b或其它名字都可以,但是约定成俗，不要搞另类，大家会不明白的。
+下例中将self改为myname一样没有错误：
+
+1 class Person:
+2           def _init_(myname,name):
+3                    myname.name=name
+4           def sayhello(myname):
+5                    print 'My name is:',myname.name
+6 p=Person('Bill')
+7 print p
+
+self指的是类实例对象本身(注意：不是类本身)。
+
+1 class Person:
+2          def _init_(self,name):
+3                   self.name=name
+4          def sayhello(self):
+5                   print 'My name is:',self.name
+6 p=Person('Bill')
+7 print p
+
+在上述例子中，self指向Person的实例p。 为什么不是指向类本身呢，如下例子：
+
+1 class Person:
+2          def _init_(self,name):
+3                   self.name=name
+4          def sayhello(self):
+5                   print 'My name is:',self.name
+6 p=Person('Bill')
+7 p1 = Person('Apple')
+8 print p
+
+如果self指向类本身，那么当有多个实例对象时，self指向哪一个呢？
+
+二
+１　self是只有在类中才会有的。self在定义类的方法时是必须有的，虽然在调用时不必传入相应的参数。
+２　但self的名称并不是一定的，在python中self不是关键词。在初始化函数中可以把self换成任意名字，例如myClass：
+class Person:
+    def _init_(myClass,name):
+        myClass.name=name
+    def printName(myClass):
+        print 'My name is:',myClass.name
+p=Person('Bill')
+print p
+３　那么self到底是什么意思呢？self其实和C++的this是一样的，只不过python中self在类的方法中必须以传入参数写在函数的参数列表中。
+它实际上是指向类的对象的一个类似于C++中指针的私有变量。
+
+三
+ 你一定很奇怪Python如何给self赋值以及为何你不需要给它赋值。举一个例子会使此变得清晰。
+ 假如你有一个类称为MyClass和这个类的一个实例MyObject。当你调用这个对象的方法MyObject.method(arg1, arg2)的时候，
+ 这会由Python自动转为MyClass.method(MyObject, arg1, arg2)——这就是self的原理了。
+这也意味着如果你有一个不需要参数的方法，你还是得给这个方法定义一个self参数。
+
+声明add()方法时，若不加self，则提示
+TypeError: add() takes exactly 2 arguments (3 given)
+File "D:\PythonWorkplace\PythonDemo\Tet.py", line 15, in <module>
+  test.add(1,3) 
+错误。
