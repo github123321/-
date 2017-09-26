@@ -1,0 +1,5 @@
+print(dir(object))
+会输出对象object所拥有的所有属性
+
+要判断对象是否有某个属性，可以用：
+hasattr(Object, "name")
