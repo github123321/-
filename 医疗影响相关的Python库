@@ -1,0 +1,143 @@
+参见链接：
+http://blog.csdn.net/ssw_1990/article/details/51890055
+
+1. PyMVPA
+
+解析：PyMVPA（Python MultiVariate Pattern Analysis）是一个用来简化大型数据集的模式分类分析的Python模块。
+
+提供一些高级的抽象的常用的处理步骤和一些常用算法的实现，而且它不仅仅局限于神经影像学领域。Windows下安
+
+装方式为pip install pymvpa-0.4.8-cp27-none-win_amd64.whl。
+
+
+2. Nilearn
+
+解析：Nilearn是一个能够快速统计学习神经影像数据的Python模块。它利用Python语言中的scikit-learn工具箱和一些进行预测建模，分类，解码，连通性分析的应用程序来进行多元的统计。
+
+
+3. Scikit-learn
+
+解析：Scikit-learn是基于Scipy为机器学习建造的的一个Python模块，它的特色就是多样化的分类，回归和聚类的算法包括支持向量机，逻辑回归，朴素贝叶斯分类器，随机森林，Gradient Boosting，聚类算法和DBSCAN等。
+
+
+4. Scikit-image
+
+解析：Scikit-image是用于图像处理的Python包，使用原生的NumPy数组作为图像对象。
+
+
+5. PyOpenCV（或CV2）
+
+解析：PyOpenCV（或CV2）是一个用Python实现的OpenCV的API。但是，PyOpenCV与CV2的区别呢？
+
+
+6. PyOpenGL
+
+解析：PyOpenGL是一个用Python实现的OpenGL的API。
+
+
+7. PIL
+
+解析：PIL（Python Imaging Library）是Python中最常用图像处理库，它的功能非常强大，并且API非常简单易用。
+
+
+8. FSL
+
+解析：常用的分析fMRI的软件有SPM，FSL和AFNI。官网对FSL的介绍：FSL is a comprehensive library of image 
+
+analysis and statistical tools for fMRI, MRI and DTI brain imaging data. The suite consists of various command line 
+
+tools, as well as simple GUIs for its core analysis pipelines. Among others, FSL offers implementations of standard 
+
+GLM analysis, white matter tractography, tissue segmentation, affine and non-linear co-registration, and 
+
+independent component analysis.
+
+FSL提供的工具，如下所示：
+
+（1）Functional MRI: FEAT, MELODIC, FABBER, BASIL, VERBENA
+
+（2）Structural MRI: BET, FAST, FIRST, FLIRT & FNIRT, FSLVBM, SIENA & SIENAX, fsl_anat
+
+（3）Diffusion MRI: FDT, TBSS, EDDY, TOPUP
+
+（4）GLM / Stats: GLM general advice, Randomise, Cluster, FDR, Dual Regression, Mm, FLOBS
+
+（5）Other: FSLView, Fslutils, Atlases, Atlasquery, SUSAN, FUGUE, MCFLIRT, Miscvis, POSSUM, BayCEST
+
+FSL安装，如下所示：
+
+（1）下载FSL
+
+http://fsl.fmrib.ox.ac.uk/fsldownloads/fsl-5.0.9-centos6_64.tar.gz
+
+（2）安装FSL
+[plain] view plain copy
+
+    sudo su  
+    mkdir /opt/software  
+    tar -zxvf fsl-5.0.9-centos6_64.tar.gz  
+
+（3）配置环境变量
+[plain] view plain copy
+
+    vim ~/.bashrc  
+    FSLDIR=/opt/software/fsl  
+    . ${FSLDIR}/etc/fslconf/fsl.sh  
+    PATH=${FSLDIR}/bin:${PATH}  
+    export FSLDIR PATH  
+
+说明：source ~/.bashrc即可，不需要重启计算机。
+
+可能遇到的问题，如下所示：
+
+（1）error while loading shared libraries: libmng.so.1: cannot open shared object file: No such file or directory
+
+解析：
+
+sudo apt-get install liblcms1 (http://packages.ubuntu.com/precise/libmng1)
+
+sudo dpkg -i libmng1_1.0.10-3_amd64.deb
+
+
+9. FreeSurfer
+
+解析：FreeSurfer是一个处理大脑3D结构像数据，进行自动皮层和皮下核团分割的软件。该软件是一款用于分析脑神
+
+经数据的工具集合，它提供了一系列的算法来量化人脑的功能、连接以及结构属性，能对高分辨率的磁共振图像进行
+
+三维重建，生成展平或胀平图像，并能得到皮质厚度、面积、灰质容积等解剖参数。
+
+FreeSurfer安装，如下所示：
+
+（1）配置环境变量
+
+export FREESURFER_HOME=/home/ssw/freesurfer
+
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
+（2）yum install tcsh
+
+（3）将license复制到/home/ssw/freesurfer中。
+
+（4）分别输入tkregister2、tkmedit、tksurfer 和recon-all --help。
+
+（5）recon-all -s bert -autorecon1。
+
+
+10. Slicer
+
+解析：3D Slicer是一个跨平台的，免费和开源的数据可视化和医学图像计算软件包。
+
+
+11. nipy，nibabel
+
+解析：Python医疗影像开发包。pip install nipy-0.4.0-cp27-none-win_amd64.whl；pip install nibabel。
+
+
+12. VTK
+
+解析：VTK（visualization toolkit）是一个开源的免费软件系统，主要用于三维计算机图形学、图像处理和可视化。
+
+VTK是在面向对象原理的基础上设计和实现的，它的内核是用C++构建的，包含有大约250,000行代码，2000多个
+
+类，还包含有几个转换界面，可以通过Python语言使用VTK。
