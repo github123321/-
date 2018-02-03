@@ -1,5 +1,5 @@
 
-µ¼ÈëkerasÄ£ĞÍÎÄ¼ş£¬²¢ÓÃÍ¼Æ¬´æ´¢ºÍÏÔÊ¾kerasÄ£ĞÍµÄ½á¹¹£º
+å¯¼å…¥kerasæ¨¡å‹æ–‡ä»¶ï¼Œå¹¶ç”¨å›¾ç‰‡å­˜å‚¨å’Œæ˜¾ç¤ºkerasæ¨¡å‹çš„ç»“æ„ï¼š
 
 from keras.models import load_model
 line_head = load_model('line_head.net')
@@ -7,19 +7,29 @@ line_head = load_model('line_head.net')
 from keras.utils.vis_utils import plot_model
 plot_model(Mod, to_file='model1.png',show_shapes=True)
 
-ÉÏÃæĞèÒª°²×°µÄÒÀÀµ¿â£º
+ä¸Šé¢éœ€è¦å®‰è£…çš„ä¾èµ–åº“ï¼š
 pip install pydot
 pip install pydot_ng 
 pip install graphviz
-Ö´ĞĞÉÏÃæ¹ıºó£¬ÈÔÓĞ´íÎó£¬ÔÙÖ´ĞĞÏÂÃæÃüÁîºó£¬³É¹¦
+æ‰§è¡Œä¸Šé¢è¿‡åï¼Œä»æœ‰é”™è¯¯ï¼Œå†æ‰§è¡Œä¸‹é¢å‘½ä»¤åï¼ŒæˆåŠŸ
 conda install graphviz 
 
 
-NvidiaÏÔ¿¨
-»ù±¾ÃüÁî£ºnvidia-smi
-²é¿´GPUÕ¼ÓÃ¶¯Ì¬ĞÅÏ¢£ºwatch -n 10 nvidia-smi?»òÕßnvidia-smi -l 10
-ÉÏÃæÃüÁîµÄ×÷ÓÃÊÇ£ºÃ¿10Ãë¸üĞÂGPUĞÅÏ¢
+Nvidiaæ˜¾å¡
+åŸºæœ¬å‘½ä»¤ï¼šnvidia-smi
+æŸ¥çœ‹GPUå ç”¨åŠ¨æ€ä¿¡æ¯ï¼šwatch -n 10 nvidia-smi?æˆ–è€…nvidia-smi -l 10
+ä¸Šé¢å‘½ä»¤çš„ä½œç”¨æ˜¯ï¼šæ¯10ç§’æ›´æ–°GPUä¿¡æ¯
 
+githubä¸Šforkåˆ«äººçš„ä»“åº“ä¹‹åï¼Œä¸å…¶è¿›è¡ŒåŒæ­¥æ›´æ–°ï¼š
+githubç½‘ç«™ä¸Šæ“ä½œ
+1. æ‰“å¼€è‡ªå·±çš„ä»“åº“ï¼Œè¿›å…¥codeä¸‹é¢ã€‚
+2. ç‚¹å‡»new pull requeståˆ›å»ºã€‚
+3. é€‰æ‹©Compare across fork
+4. baseæ”¹æˆè‡ªå·±çš„Forkï¼Œheadæ”¹æˆåŸä½œè€…çš„
+5. ç‚¹å‡»Create pull requestï¼Œå¹¶å¡«å†™åˆ›å»ºä¿¡æ¯ã€‚
+6. ç‚¹å‡»Merge pull request åˆå¹¶ä»æºforkæ¥çš„ä»£ç ã€‚
+7. å®Œæˆã€‚
 
+ç”¨gitå‘½ä»¤æ“ä½œ:
 
 
