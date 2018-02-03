@@ -32,4 +32,8 @@ github网站上操作
 
 用git命令操作:
 
+python2.7安装1.2版本的tensorflow
+pip2.7 install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.2.1-cp27-none-linux_x86_64.whl
+
+
 
