@@ -1,0 +1,25 @@
+
+导入keras模型文件，并用图片存储和显示keras模型的结构：
+
+from keras.models import load_model
+line_head = load_model('line_head.net')
+
+from keras.utils.vis_utils import plot_model
+plot_model(Mod, to_file='model1.png',show_shapes=True)
+
+上面需要安装的依赖库：
+pip install pydot
+pip install pydot_ng 
+pip install graphviz
+执行上面过后，仍有错误，再执行下面命令后，成功
+conda install graphviz 
+
+
+Nvidia显卡
+基本命令：nvidia-smi
+查看GPU占用动态信息：watch -n 10 nvidia-smi?或者nvidia-smi -l 10
+上面命令的作用是：每10秒更新GPU信息
+
+
+
+
