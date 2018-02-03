@@ -1,1 +1,92 @@
+git的使用：
 
+安装：
+Windows：下载安装后，打开Git Bash,输入：
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+完成配置。
+
+创建版本库：
+首先，选择一个合适的地方，创建一个空目录：
+$ mkdir learngit
+$ cd learngit
+$ pwd
+pwd命令用于显示当前目录。如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
+
+第二步，通过git init命令把这个目录变成Git可以管理的仓库：
+$ git init
+可以发现当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，
+没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
+如果你没有看到.git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见。
+
+把文件添加到版本库：
+把文件如readme.txt放到Git仓库下，之后：
+第一步，用命令git add告诉Git，把文件添加到仓库：
+$ git add readme.txt
+第二步，用命令git commit告诉Git，把文件提交到仓库：
+$ git commit -m "wrote a readme file"
+简单解释一下git commit命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
+
+查看历史提交记录
+$ git log
+或：
+$ git log --pretty=oneline（）输出信息较少
+
+版本回退到上一个版本：
+$ git reset --hard HEAD^
+
+重新找回刚刚最新的版本：
+$ git reset --hard 3628164（只要上面的命令行窗口还没有被关掉，就可以从历史记录里找到commit id,即3628164，这个数不用写全，前几位即可）
+
+若关掉了怎么办：
+Git提供了一个命令git reflog用来记录你的每一次命令：
+$ git reflog
+从结果中可以找到某个版本的commit id 
+
+查看工作区状态：
+$ git status
+可以看出哪些文件被修改(还没提交)，哪些文件（自始至终）没有被提交过git（状态是untracked）
+
+查看工作区和版本库里面最新版本的区别：
+$ git diff HEAD -- readme.txt 
+
+撤销修改：
+已经做了修改，还没有提交到暂存区，此时：
+$ git status（可以没有，不查看状态）
+$ git checkout -- readme.txt
+意思就是，把readme.txt文件在工作区的修改全部撤销。这里有两种情况：
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+git checkout -- file命令中的--很重要，没有--，就变成了“切换到另一个分支”的命令
+
+如果已经git add到暂存区了，还没有commit，先查看：
+$ git status
+再：
+$ git reset HEAD readme.txt
+可以把暂存区的修改撤销掉（unstage），重新放回工作区，
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+再用git status查看一下，现在暂存区是干净的，工作区有修改：
+$ git status
+再丢弃工作区的修改：
+$ git checkout -- readme.txt
+$ git status
+
+现在，假设你不但改错了东西，还从暂存区提交到了版本库，怎么办呢？还记得版本回退一节吗？可以回退到上一个版本。
+不过，这是有条件的，就是你还没有把自己的本地版本库推送到远程。
+
+
+删除文件：
+直接在文件管理器中把没用的文件删了，或者用rm命令删了：
+$ rm test.txt
+$ git status
+现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
+$ git rm test.txt
+$ git commit -m "remove test.txt"
+另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：
+$ git checkout -- test.txt
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+
+小结
+命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，
+你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
